@@ -1,0 +1,11 @@
+{
+  "CREATE_IBKR_WIDGET": "Create IBKR widget",
+   "WORKSPACE": {
+    "ibkr": "IBKR"
+   },
+   "CONTEXT": {
+    "ACTION": {
+      "CREATE_IBKR_WIDGET": "Create IBKR widget"
+	}
+   }
+}

@@ -1,0 +1,136 @@
+.chart-button-table {
+    opacity: 0.7;
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.chart-button-table:hover {
+    opacity: 1;
+}
+
+.chart-button-table td {
+    border-radius: 3px;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #33353a;
+    color: #b2b2b2;
+    line-height: 12px;
+    transition: all 0.3s ease;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.chart-button-table .active.desc:before {
+    content: "↓";
+}
+
+.chart-button-table .active.asc:before {
+    content: "↑";
+}
+
+.chart-button-table td:not(.active) {
+    background-color: #3b4250;
+}
+
+.chart-button-table td:not(.active):hover {
+    background-color: #3b4250;
+}
+
+.chart-button-table td:hover {
+    background-color: #3b4250;
+    box-shadow: 0 0 3px #b2b2b2;
+}
+
+.stock-orders {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 5px;
+    padding: 2px;
+}
+
+.no-positions {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.no-orders {
+    text-align: center;
+}
+
+.order {
+    line-height: 8px;
+}
+
+.sell {
+    color: rgb(158, 159, 70);
+}
+
+.buy {
+    color: rgb(70, 149, 159);
+}
+
+.item-orders {
+    line-height: 10px;
+    grid-row: span 2;
+    height: 30px !important;
+    overflow: auto;
+    font-size: 8px;
+}
+
+.item-orders div {
+    white-space: nowrap;
+}
+
+.item {
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.stock-item {
+    background: rgb(37, 64, 62);
+    display: grid;
+    justify-content: space-between;
+    height: 60px;
+    overflow: hidden;
+    border: 1px solid green;
+    border-radius: 3px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.stock-item .item:first-child {
+    background: rgb(43, 78, 75);
+}
+
+.positive {
+    color: #76c7c0;
+}
+
+.negative {
+    color: #e74c3c;
+}
+
+.no-positions {
+    background-color: #353f5b;
+}
+
+.no-positions .item:first-child {
+    background: #3d4b70;
+}
