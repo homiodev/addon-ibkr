@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.Objects;
 
 @Log4j2
 @Component
@@ -17,7 +18,7 @@ public class IBKREntrypoint implements AddonEntrypoint {
 
     @Override
     public @NotNull URL getAddonImageURL() {
-        return getResource("images/ibkr.png");
+        return Objects.requireNonNull(getResource("images/ibkr.png"));
     }
 
 }

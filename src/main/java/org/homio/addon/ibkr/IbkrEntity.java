@@ -22,6 +22,7 @@ import org.homio.api.ui.field.action.v1.UIInputBuilder;
 import org.homio.api.util.CommonUtils;
 import org.homio.api.util.SecureString;
 import org.homio.api.widget.CustomWidgetConfigurableEntity;
+import org.homio.api.widget.CustomWidgetDataStore;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -137,14 +138,6 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
         return ActionResponseModel.success();
     }
 
-    @UIContextMenuAction(value = "CREATE_IBKR_WIDGET",
-            icon = "fas fa-table-list",
-            iconColor = "#91293E")
-    public ActionResponseModel createWidget() {
-        // context().widget().
-        return ActionResponseModel.success();
-    }
-
     public String getUrl(String path) {
         return "http://localhost:" + getPort() + "/v1/api/" + path;
     }
@@ -157,6 +150,11 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
     public void assembleUIFields(@NotNull HasDynamicUIFields.UIFieldBuilder uiFieldBuilder, @NotNull HasJsonData sourceEntity) {
         UpdatableValue<String> sort = UpdatableValue.wrap(sourceEntity, Sort.positions.name(), "sort");
         uiFieldBuilder.addSelect(1, sort, OptionModel.enumList(Sort.class));
+    }
+
+    @Override
+    public void setWidgetDataStore(CustomWidgetDataStore customWidgetDataStore) {
+
     }
 
     public enum Sort {

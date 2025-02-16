@@ -1,4 +1,4 @@
-class IbkrClass extends HTMLElement {
+class IbkrWidget extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -76,10 +76,11 @@ class IbkrClass extends HTMLElement {
     }
 
     buildPosition(pos) {
+        const pnlClr = pos.unrealizedPnl > 0 ? 'positive' : pos.unrealizedPnl == 0 ? 'none' : 'negative'
         const clazz = pos.position == 0 ? ' no-positions' : '';
         return `<div class="stock-item${clazz}">
-      <div class="item">${pos.ticker}:${pos.position}</div>     
-      <div class="item right ${pos.unrealizedPnl > 0 ? 'positive' : 'negative'}">
+      <div class="item">${pos.ticker}: ${pos.position}</div>     
+      <div class="item right ${pnlClr}">
         P&L: ${pos.unrealizedPnl.toFixed(0)}
       </div>     
       <div class="item ${pos.avgPrice < pos.mktPrice ? 'positive' : 'negative'}">
@@ -118,4 +119,4 @@ class IbkrClass extends HTMLElement {
     }
 }
 
-customElements.define("ibkr-widget", IbkrClass);
+customElements.define("ibkr-widget", IbkrWidget);
