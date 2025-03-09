@@ -21,17 +21,19 @@ public class Scratch3IBKRBlocks extends Scratch3ExtensionBlocks {
 
         // blocks
         blockReporter(10, "total_cash", "Total cash", workspaceBlock ->
-                new DecimalType(getService(context).getTotalCash()));
+          new DecimalType(getService(context).getTotalCash()));
         blockReporter(15, "equity_with_loan_value", "Equity with loan", workspaceBlock ->
-                new DecimalType(getService(context).getEquityWithLoanValue()));
+          new DecimalType(getService(context).getEquityWithLoanValue()));
         blockReporter(25, "positions", "Positions", workspaceBlock ->
-                new JsonType(getService(context).getPositions()));
+          new JsonType(getService(context).getPositions()));
         blockReporter(30, "orders", "Orders", workspaceBlock ->
-                new JsonType(getService(context).getOrders()));
+          new JsonType(getService(context).getOrders()));
         blockReporter(35, "buyOrders", "Buy orders", workspaceBlock ->
-                new JsonType(getService(context).getBuyOrders()));
+          new JsonType(getService(context).getBuyOrders()));
         blockReporter(40, "sellOrders", "Sell orders", workspaceBlock ->
-                new JsonType(getService(context).getSellOrders()));
+          new JsonType(getService(context).getSellOrders()));
+        blockReporter(45, "dayPnl", "Day P&L", workspaceBlock ->
+          new JsonType(getService(context).getDayPNL()));
     }
 
     private IbkrService getService(Context context) {

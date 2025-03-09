@@ -1,12 +1,12 @@
 class IbkrWidget extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.orders = [];
-    }
-
     setContext(widget) {
-        this.fetchInfo(widget);
+        widget.dataWarehouse.subscribe(data => {
+            if(data) {
+                this.info = data;
+                this.sort = widget.sort || 'P&L';
+                this.render();
+            }
+        });
     }
 
     render() {
@@ -108,14 +108,6 @@ class IbkrWidget extends HTMLElement {
                <td>${o.size}</td>
                <td>${o.type}</td>
                <td>${o.price}</td></tr>`).join('') || ''}</table>`;
-    }
-
-    fetchInfo(widget) {
-        widget.callService('getWidgetInfo').subscribe(value => {
-            this.info = value;
-            this.sort = widget.sort || 'P&L';
-            this.render();
-        });
     }
 }
 
