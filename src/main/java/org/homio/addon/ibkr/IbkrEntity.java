@@ -34,9 +34,7 @@ import org.json.JSONObject;
 import java.util.Map;
 import java.util.Set;
 
-import static org.homio.api.ui.field.action.v1.item.UITextInputItemBuilder.InputType.Text;
-
-@SuppressWarnings({"JpaAttributeTypeInspection", "JpaAttributeMemberSignatureInspection"})
+@SuppressWarnings({"JpaAttributeTypeInspection", "JpaAttributeMemberSignatureInspection", "unused"})
 @Entity
 @CreateSingleEntity
 @UISidebarChildren(icon = "fas fa-square-rss", color = "#B33F30", allowCreateItem = false)
@@ -163,7 +161,7 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
       updateWidgetView(context, params, View.block));
 
     uiInputBuilder
-      .addOpenDialogSelectableButton("ADD_IBKR_VARIABLE", new Icon("fas fa-money-bill-1"),  (context, params) -> {
+      .addOpenDialogSelectableButton("ADD_IBKR_VARIABLE", new Icon("fas fa-money-bill-1"), (context, params) -> {
         String groupId = params.getString("group");
         createVariables(params, context, groupId);
         return ActionResponseModel.success();
@@ -195,7 +193,7 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
   }
 
   private @NotNull BaseEntity createIbkrWidget(Context context, String tabId) {
-   return context
+    return context
       .widget()
       .createCustomWidget(
         getEntityID(),
@@ -211,8 +209,8 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
     dialogBuilder.addFlex(
       "main",
       flex -> {
-        flex.addInput("name", "IBKR goog price", Text, true);
-        flex.addInput("ticker", "GOOG", Text, true);
+        flex.addTextInput("name", "IBKR goog price", true);
+        flex.addTextInput("ticker", "GOOG", true);
         flex.addIconPicker("icon", "fas fa-money-bill-trend-up");
         flex.addColorPicker("color", "#438A45");
         flex.addSelectBox("type")
