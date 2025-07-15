@@ -9,20 +9,19 @@ import org.homio.api.entity.CreateSingleEntity;
 import org.homio.api.entity.HasJsonData;
 import org.homio.api.entity.HasStatusAndMsg;
 import org.homio.api.entity.device.DeviceBaseEntity;
-import org.homio.api.entity.types.MiscEntity;
 import org.homio.api.model.ActionResponseModel;
 import org.homio.api.model.Icon;
 import org.homio.api.model.JSON;
 import org.homio.api.model.OptionModel;
 import org.homio.api.model.UpdatableValue;
 import org.homio.api.service.EntityService;
-import org.homio.api.ui.UISidebarChildren;
 import org.homio.api.ui.field.UIField;
 import org.homio.api.ui.field.UIFieldGroup;
 import org.homio.api.ui.field.UIFieldPort;
 import org.homio.api.ui.field.action.HasDynamicUIFields;
 import org.homio.api.ui.field.action.v1.UIInputBuilder;
 import org.homio.api.ui.field.action.v1.layout.dialog.UIDialogLayoutBuilder;
+import org.homio.api.ui.route.UIRouteMisc;
 import org.homio.api.util.CommonUtils;
 import org.homio.api.util.SecureString;
 import org.homio.api.widget.CustomWidgetDataStore;
@@ -37,8 +36,8 @@ import java.util.Set;
 @SuppressWarnings({"JpaAttributeTypeInspection", "JpaAttributeMemberSignatureInspection", "unused"})
 @Entity
 @CreateSingleEntity
-@UISidebarChildren(icon = "fas fa-square-rss", color = "#B33F30", allowCreateItem = false)
-public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>,
+@UIRouteMisc(icon = "fas fa-square-rss", color = "#B33F30", allowCreateItem = false)
+public class IbkrEntity extends DeviceBaseEntity implements EntityService<IbkrService>,
   HasStatusAndMsg, HasCustomWidget {
 
   public static final String PROVIDER = "PROVIDER";
@@ -116,11 +115,6 @@ public class IbkrEntity extends MiscEntity implements EntityService<IbkrService>
   @Override
   public long getEntityServiceHashCode() {
     return getJsonDataHashCode("port");
-  }
-
-  @Override
-  public @NotNull Class<IbkrService> getEntityServiceItemClass() {
-    return IbkrService.class;
   }
 
   @Override
